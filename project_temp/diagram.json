@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "temp-logger",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0 },
+    { "type": "wokwi-ds18b20", "id": "ds1", "top": 80, "left": 220, "attrs": { "temperature": "22.5" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 30, "left": 160, "rotate": 90, "attrs": { "value": "4700" } }
+  ],
+  "connections": [
+    ["esp:TX0",   "$serialMonitor:RX", "", []],
+    ["esp:RX0",   "$serialMonitor:TX", "", []],
+    ["esp:3V3",   "ds1:VCC", "red",    []],
+    ["esp:GND.1", "ds1:GND", "black",  []],
+    ["esp:D4",    "ds1:DQ",  "yellow", []],
+    ["ds1:VCC",   "r1:1",    "red",    []],
+    ["ds1:DQ",    "r1:2",    "yellow", []]
+  ]
+}
